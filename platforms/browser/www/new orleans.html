@@ -85,9 +85,23 @@
 		function delSoundItem(){
 			localStorage.removeItem('sound');
 		}
+		
+		 function onLoad()
+            {
+                  document.addEventListener("deviceready", onDeviceReady, true);
+            }
+		
+		
+		 function exitFromApp()
+             {
+                navigator.app.exitApp();
+             }
+			
+		
+	
 	</script>
 </head>
-<body onload="delay(); cont(); delSoundItem(); nobackforw()" onpageshow="if (event.persisted) nobackforw();"> <!-- event.persisted for avoiding multi-clicking -->
+<body onload="delay(); cont(); delSoundItem(); nobackforw(); onLoad()" onpageshow="if (event.persisted) nobackforw();"> <!-- event.persisted for avoiding multi-clicking -->
 		<!-- main theme sounds -->
 		<audio id="rain1" hidden="hidden" preload loop> 
 			<source src = "sounds/rain.ogg"
@@ -161,7 +175,7 @@
 					</p>
 				</div>
 			</div>
-		<a class="links"  type="button" onclick="location.href='https://www.google.gr/'"><img src="images/exit.png" class="imageexit"></a>
+		<a class="links"  type="button" onclick="exitFromApp()"><img src="images/exit.png" class="imageexit"></a>
 		<div id="openModal3" class="modalDialog3"> <!-- confirm to reset data for new game -->
 			<div>
 				<p>
